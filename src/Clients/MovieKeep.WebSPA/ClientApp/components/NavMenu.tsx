@@ -1,40 +1,74 @@
 import * as React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, withRouter } from 'react-router-dom';
+import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import Button from 'material-ui/Button';
+import InboxIcon from 'material-ui-icons/Inbox';
+import MovieIcon from 'material-ui-icons/Movie';
+import DraftsIcon from 'material-ui-icons/Drafts';
+import Typography from 'material-ui/Typography';
+import { withStyles } from 'material-ui/styles';
+import { MuiThemeProvider, StyleRulesCallback } from 'material-ui/styles';
+import { RouteComponentProps } from "react-router";
+import { AnyAction, compose } from "redux";
+import { connect } from "react-redux";
 
-export class NavMenu extends React.Component<{}, {}> {
+type ClassNames = | 'root';
+
+const styles: StyleRulesCallback<ClassNames> = theme => ({
+    root: {
+        width: '100%',
+        maxWidth: 240,
+        height: '100%',
+        backgroundColor: theme.palette.background.paper,        
+    },
+});
+
+interface ILayoutProps {
+    classes: any,
+    children: Element
+}
+
+type LayoutProps = RouteComponentProps<{}>;
+
+class NavMenu extends React.Component<{}, {}> {
     public render() {
-        return <div className='main-nav'>
-                <div className='navbar navbar-inverse'>
-                <div className='navbar-header'>
-                    <button type='button' className='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
-                        <span className='sr-only'>Toggle navigation</span>
-                        <span className='icon-bar'></span>
-                        <span className='icon-bar'></span>
-                        <span className='icon-bar'></span>
-                    </button>
-                    <Link className='navbar-brand' to={ '/' }>MovieKeep.WebSPA</Link>
-                </div>
-                <div className='clearfix'></div>
-                <div className='navbar-collapse collapse'>
-                    <ul className='nav navbar-nav'>
-                        <li>
-                            <NavLink exact to={ '/' } activeClassName='active'>
-                                <span className='glyphicon glyphicon-home'></span> Home
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to={ '/counter' } activeClassName='active'>
-                                <span className='glyphicon glyphicon-education'></span> Counter
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to={ '/fetchdata' } activeClassName='active'>
-                                <span className='glyphicon glyphicon-th-list'></span> Fetch data
-                            </NavLink>
-                        </li>
-                    </ul>
-                </div>
+
+        const { classes } = this.props as ILayoutProps;
+
+        return (
+            <div className={classes.root}>
+                <List>
+                    <NavLink exact to={'/'}>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <DraftsIcon />
+                            </ListItemIcon>
+                            <Typography type="title"> Test </Typography>
+                        </ListItem>
+                    </NavLink>
+                    <NavLink to={'/counter'}>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <MovieIcon />
+                            </ListItemIcon>
+                            <Typography type="title"> Test </Typography>
+                        </ListItem>
+                    </NavLink>
+                    <NavLink to={'/fetchData'}>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <DraftsIcon />
+                            </ListItemIcon>
+                            <Typography type="title"> Test </Typography>
+                        </ListItem>
+                    </NavLink>
+                </List>
             </div>
-        </div>;
+        );
     }
 }
+
+export default compose(withStyles(styles, {}), connect(), )(NavMenu) as typeof NavMenu;
+
+
+
