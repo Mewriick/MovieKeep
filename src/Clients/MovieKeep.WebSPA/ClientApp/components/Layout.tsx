@@ -201,11 +201,9 @@ class Layout extends React.Component<{}, {}> {
                         </main>
                     </div>
                 </div>
-
             </MuiThemeProvider>
         );
     }
 }
-
 
 export default compose(withStyles(styles, {}), withRouter, connect())(Layout) as typeof Layout;

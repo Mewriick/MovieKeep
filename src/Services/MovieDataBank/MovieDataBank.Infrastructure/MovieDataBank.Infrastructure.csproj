@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TMDbLib" Version="1.1.0-alpha" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\MovieKeep.Core\MovieKeep.Core.csproj" />
+    <ProjectReference Include="..\MovieDataBank.Domain\MovieDataBank.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
