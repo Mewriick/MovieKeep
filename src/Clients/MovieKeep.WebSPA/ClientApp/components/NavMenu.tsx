@@ -67,7 +67,7 @@ class NavMenu extends React.Component<{}, {}> {
                     </ListItem>
                     <Collapse in={this.state.movieMenuOpen}>
                         <List disablePadding>
-                            <NavLink exact to={'/'}>
+                            <NavLink to={'/nowPlaying'}>
                                 <ListItem button className={classes.nested}>
                                     <ListItemIcon>
                                         <TheatreIcon />

@@ -25,6 +25,9 @@
     <None Remove="ClientApp\Movie\Actions.ts" />
     <None Remove="ClientApp\Movie\ActionTypes.ts" />
     <None Remove="ClientApp\Movie\IMovieListItem.ts" />
+    <None Remove="ClientApp\Movie\MovieList.tsx" />
+    <None Remove="ClientApp\Movie\MovieListItem.tsx" />
+    <None Remove="ClientApp\Movie\NowPlayingMoviesContainer.tsx" />
     <None Remove="ClientApp\Movie\Reducers.ts" />
   </ItemGroup>
 
@@ -33,6 +36,9 @@
     <TypeScriptCompile Include="ClientApp\Movie\ActionTypes.ts" />
     <TypeScriptCompile Include="ClientApp\Movie\IMovieListItem.ts" />
     <TypeScriptCompile Include="ClientApp\Movie\ActionCreators.ts" />
+    <TypeScriptCompile Include="ClientApp\Movie\MovieList.tsx" />
+    <TypeScriptCompile Include="ClientApp\Movie\MovieListItem.tsx" />
+    <TypeScriptCompile Include="ClientApp\Movie\NowPlayingMoviesContainer.tsx" />
     <TypeScriptCompile Include="ClientApp\Movie\Reducers.ts" />
   </ItemGroup>
 

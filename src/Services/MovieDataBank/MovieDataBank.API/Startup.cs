@@ -29,6 +29,7 @@ namespace MovieDataBank.API
             services.AddMvc();
             services.AddOptions();
             services.AddLogging();
+            services.AddCors();
 
             services.Configure<TMDBInfo>(Configuration);
             services.AddSingleton(typeof(TMDbClient), new TMDbClient(Configuration["TMDBInfo:ApiKey"]));
@@ -43,6 +44,10 @@ namespace MovieDataBank.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseCors(builder =>
+                  builder
+                  .WithOrigins("http://localhost")
+                  .AllowAnyOrigin());
             }
 
             app.UseMvc();
