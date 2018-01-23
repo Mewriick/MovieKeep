@@ -1,6 +1,6 @@
 ﻿import * as React from 'react';
-import { IMovieListItem } from "./IMovieListItem";
-import { MovieListItem } from "./MovieListItem";
+import { IMovieListItem } from './IMovieListItem';
+import MovieListItem  from './MovieListItem';
 
 interface IMovieListProps {
     movies: IMovieListItem[];
