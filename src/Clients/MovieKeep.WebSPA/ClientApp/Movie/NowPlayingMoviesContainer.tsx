@@ -4,7 +4,7 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../store';
 import * as ActionCreators from './ActionCreators';
-import { MovieList } from './MovieList';
+import MovieList from './MovieList';
  
 
 type PlayingMoviesProps =

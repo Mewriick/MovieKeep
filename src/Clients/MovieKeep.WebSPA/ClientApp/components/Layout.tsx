@@ -49,7 +49,8 @@ const styles: StyleRulesCallback<ClassNames> = theme => ({
         width: '100%',
     },
     body: {
-        backgroundColor: "#333"
+        backgroundColor: "#212121",
+        height: '100%',
     },
     flex: {
         flex: 1,
@@ -89,7 +90,7 @@ const styles: StyleRulesCallback<ClassNames> = theme => ({
     },
     drawerPaper: {
         position: 'relative',
-        height: '100vh',
+        height: '100%',
         marginTop: '64px',
         width: drawerWidth,
     },
@@ -103,7 +104,6 @@ const styles: StyleRulesCallback<ClassNames> = theme => ({
     content: {
         width: '100%',
         flexGrow: 1,
-        backgroundColor: theme.palette.background.paper,
         padding: theme.spacing.unit * 3,
         transition: theme.transitions.create('margin', {
             easing: theme.transitions.easing.sharp,
@@ -119,7 +119,7 @@ const styles: StyleRulesCallback<ClassNames> = theme => ({
         },
     },
     contentLeft: {
-        marginLeft: -drawerWidth,
+        marginLeft: -drawerWidth,       
     },
     contentShift: {
         transition: theme.transitions.create('margin', {
@@ -128,7 +128,7 @@ const styles: StyleRulesCallback<ClassNames> = theme => ({
         }),
     },
     contentShiftLeft: {
-        marginLeft: 0,
+        marginLeft: 0,    
     },
     loginButton: {
         float: 'right'
