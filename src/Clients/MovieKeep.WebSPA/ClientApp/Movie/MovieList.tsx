@@ -4,7 +4,6 @@ import MovieListItem from './MovieListItem';
 import GridList, { GridListTile, GridListTileBar } from 'material-ui/GridList';
 import { StyleRules, Theme, withStyles, WithStyles } from "material-ui/styles";
 
-
 interface IMovieListProps {
     movies: IMovieListItem[];
 }
@@ -18,6 +17,7 @@ const styles = (theme: Theme): StyleRules => ({
         justifyContent: 'space-around',
         overflow: 'hidden',
         backgroundColor: theme.palette.background.contentFrame,
+        marginTop: theme.spacing.unit * 1.5
     },
     grid: {
         width: "55vw",

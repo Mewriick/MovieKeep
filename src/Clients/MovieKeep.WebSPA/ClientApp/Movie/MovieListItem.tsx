@@ -9,6 +9,7 @@ import DateRangeIcon from 'material-ui-icons/DateRange';
 import StarIcon from 'material-ui-icons/Star';
 import ArrowRightIcon from 'material-ui-icons/KeyboardArrowRight';
 import IconButton from 'material-ui/IconButton';
+import DateTime from "typescript-dotnet-commonjs/System/Time/DateTime";
 
 interface IMovieListItemProps {
     movie: IMovieListItem;
@@ -87,6 +88,8 @@ class MovieListItem extends React.Component<MovieListItemProps, {}> {
         const { movie } = this.props as IMovieListItemProps;
         const { classes } = this.props;
 
+        let releaseDateParsed = new DateTime(movie.releaseDate);
+
         return (
             <div>
                 <Card className={classes.card}>
@@ -106,7 +109,9 @@ class MovieListItem extends React.Component<MovieListItemProps, {}> {
                                 <Typography type="subheading">{movie.socialInfoVoteAverage}</Typography>
                             </div>
                         </div>
-                        <Typography type="subheading"><DateRangeIcon /> {movie.releaseDate}</Typography>
+                        <Typography type="headline"><DateRangeIcon />
+                            {releaseDateParsed.calendar.day}/{releaseDateParsed.calendar.month}/{releaseDateParsed.calendar.year}
+                        </Typography>
                         <Divider />
                         <div className={classes.overviewWrapper}>
                             <Typography classes={{ root: this.props.classes.body2 }} className={classes.overview} type="body2" component="p" gutterBottom>

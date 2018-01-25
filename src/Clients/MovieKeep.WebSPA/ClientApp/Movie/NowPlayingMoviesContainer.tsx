@@ -1,6 +1,7 @@
 ﻿import * as React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 
+import Typography from 'material-ui/Typography';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../store';
 import * as ActionCreators from './ActionCreators';
@@ -27,7 +28,7 @@ class NowPlayingMoviesContainer extends React.Component<PlayingMoviesProps, {}> 
     public render() {
         return (
             <div>
-                <h2>Now Playing Movies</h2>
+                <Typography type="display2">Now Playing Movies</Typography>
                 <MovieList movies={this.props.movies} />
             </div>
         )

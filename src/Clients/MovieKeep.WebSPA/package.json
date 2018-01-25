@@ -54,7 +54,7 @@
     "webpack-hot-middleware": "^2.20.0",
     "webpack-merge": "4.1.0",
     "classnames": "2.2.5",
-    "typescript-dotnet-system": "4.9.11",
+    "typescript-dotnet-commonjs": "4.9.11",
     "recompose": "0.26.0"
   }
 }
