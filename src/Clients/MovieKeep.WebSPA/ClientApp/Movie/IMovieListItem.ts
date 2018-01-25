@@ -6,5 +6,6 @@ export interface IMovieListItem {
     releaseDate?: DateTime;  
     overview: string;
     socialInfoPopularity: number;
+    socialInfoVoteAverage: number;
     posterUrl: string;
 }

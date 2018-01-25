@@ -7,13 +7,18 @@ import Divider from 'material-ui/Divider';
 import Typography from 'material-ui/Typography';
 import DateRangeIcon from 'material-ui-icons/DateRange';
 import StarIcon from 'material-ui-icons/Star';
+import ArrowRightIcon from 'material-ui-icons/KeyboardArrowRight';
+import IconButton from 'material-ui/IconButton';
 
 interface IMovieListItemProps {
     movie: IMovieListItem;
 }
 
-type MovieListItemProps = IMovieListItemProps & WithStyles<"root" | "card" | "details" | "cover"
-    | "content" | "overview" | "info">;
+const cardHeight = 280;
+const overviewMargin = 100;
+
+type MovieListItemProps = IMovieListItemProps & WithStyles<"root" | "card" | "details" | "cover" | "body2"
+    | "content" | "overview" | "info" | "titleWrapper" | "title" | "star" | "overviewWrapper" | "iconButtonRoot">;
 
 const styles = (theme: Theme): StyleRules => ({
     card: {
@@ -27,11 +32,11 @@ const styles = (theme: Theme): StyleRules => ({
     content: {
         flex: '1 0 auto',
         maxWidth: 300,
-        maxHeight: 280,
+        maxHeight: cardHeight,
     },
     cover: {
         width: 180,
-        height: 280,
+        height: cardHeight,
     },
     root: {
         display: 'flex',
@@ -40,13 +45,38 @@ const styles = (theme: Theme): StyleRules => ({
         overflow: 'hidden',
         backgroundColor: theme.palette.background.paper,
     },
+    overviewWrapper: {
+        display: 'flex',
+        justifyContent: "space-between",
+        flexDirection: "column",
+        height: "75%",
+    },
     overview: {
         marginTop: 10,
-        marginBottom: 'calc(25% - 10px)',
+        flex: "1 100%",
     },
     info: {
-        float: 'right',
-        marginTop: theme.spacing.unit * 2
+        alignSelf: "flex-end",
+        marginTop: theme.spacing.unit * 1.5
+    },
+    titleWrapper: {
+        display: 'flex',
+        justifyContent: 'flex-start',
+        flexDirection: 'row',
+        padding: 5
+    },
+    title: {
+        flex: '1 100%'
+    },
+    star: {
+        marginLeft: 'auto',
+    },
+    iconButtonRoot: {
+        fontSize: "16px",
+        width: "auto",
+    },
+    body2: {
+        fontSize: "1.15rem",
     }
 });
 
@@ -65,14 +95,28 @@ class MovieListItem extends React.Component<MovieListItemProps, {}> {
                         image={movie.posterUrl}
                         title={movie.title} />
                     <CardContent className={classes.content}>
-                        <Typography type="headline">{movie.title}</Typography><StarIcon />
-                        <Typography type="subheading"><DateRangeIcon/> {movie.releaseDate}</Typography>
+                        <div className={classes.titleWrapper}>
+                            <div className={classes.title}>
+                                <Typography type="headline">{movie.title}</Typography>
+                            </div>
+                            <div className={classes.star}>
+                                <StarIcon />
+                            </div>
+                            <div className={classes.star}>
+                                <Typography type="subheading">{movie.socialInfoVoteAverage}</Typography>
+                            </div>
+                        </div>
+                        <Typography type="subheading"><DateRangeIcon /> {movie.releaseDate}</Typography>
                         <Divider />
-                        <Typography className={classes.overview} type="body2" component="p" gutterBottom>
-                            {movie.overview.substring(0, 300)}...
-                         </Typography>
-                        <Divider />
-                        <Typography className={classes.info} type="display1">More information</Typography>
+                        <div className={classes.overviewWrapper}>
+                            <Typography classes={{ root: this.props.classes.body2 }} className={classes.overview} type="body2" component="p" gutterBottom>
+                                {movie.overview.length > 300 ? movie.overview.substring(0, 300) + '...' : movie.overview}
+                            </Typography>
+                            <Divider />
+                            <IconButton classes={{ root: this.props.classes.iconButtonRoot }} className={classes.info}>
+                                More information <ArrowRightIcon />
+                            </IconButton>
+                        </div>
                     </CardContent>
                 </Card>
             </div>

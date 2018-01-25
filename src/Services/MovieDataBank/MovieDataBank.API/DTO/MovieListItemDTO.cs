@@ -12,6 +12,8 @@ namespace MovieDataBank.API.DTO
 
         public double SocialInfoPopularity { get; set; }
 
+        public double SocialInfoVoteAverage { get; set; }
+
         public string PosterUrl { get; set; }
 
         public int TMDBId { get; set; }
