@@ -90,7 +90,7 @@ const styles: StyleRulesCallback<ClassNames> = theme => ({
     },
     drawerPaper: {
         position: 'relative',
-        height: '100%',
+        height: '97%',
         marginTop: '64px',
         width: drawerWidth,
     },

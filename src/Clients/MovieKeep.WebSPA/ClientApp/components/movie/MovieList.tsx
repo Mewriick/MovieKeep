@@ -1,5 +1,5 @@
 ﻿import * as React from 'react';
-import { IMovieListItem } from './IMovieListItem';
+import { IMovieListItem } from '../../common/IMovieListItem';
 import MovieListItem from './MovieListItem';
 import GridList, { GridListTile, GridListTileBar } from 'material-ui/GridList';
 import { StyleRules, Theme, withStyles, WithStyles } from "material-ui/styles";
@@ -20,8 +20,9 @@ const styles = (theme: Theme): StyleRules => ({
         marginTop: theme.spacing.unit * 1.5
     },
     grid: {
-        width: "55vw",
-        height: "100%",
+        width: '100%',
+        height: '100%',
+        justifyContent: "center",
     },
 });
 
@@ -32,7 +33,7 @@ class MovieList extends React.Component<MovieListProps, {}> {
 
         return (
             <div className={classes.root}>
-                <GridList cellHeight={180} className={classes.grid}>
+                <GridList cellHeight={200} className={classes.grid}>
                     {this.movieListItems()}
                 </GridList>
             </div>

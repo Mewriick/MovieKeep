@@ -21,25 +21,29 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\Movie\ActionCreators.ts" />
-    <None Remove="ClientApp\Movie\Actions.ts" />
-    <None Remove="ClientApp\Movie\ActionTypes.ts" />
-    <None Remove="ClientApp\Movie\IMovieListItem.ts" />
-    <None Remove="ClientApp\Movie\MovieList.tsx" />
-    <None Remove="ClientApp\Movie\MovieListItem.tsx" />
-    <None Remove="ClientApp\Movie\NowPlayingMoviesContainer.tsx" />
-    <None Remove="ClientApp\Movie\Reducers.ts" />
+    <None Remove="ClientApp\common\IMovieDetail.ts" />
+    <None Remove="ClientApp\movie\ActionCreators.ts" />
+    <None Remove="ClientApp\movie\Actions.ts" />
+    <None Remove="ClientApp\movie\ActionTypes.ts" />
+    <None Remove="ClientApp\movie\IMovieListItem.ts" />
+    <None Remove="ClientApp\movie\Index.ts" />
+    <None Remove="ClientApp\movie\MovieList.tsx" />
+    <None Remove="ClientApp\movie\MovieListItem.tsx" />
+    <None Remove="ClientApp\movie\NowPlayingMoviesContainer.tsx" />
+    <None Remove="ClientApp\movie\Reducers.ts" />
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\Movie\Actions.ts" />
-    <TypeScriptCompile Include="ClientApp\Movie\ActionTypes.ts" />
-    <TypeScriptCompile Include="ClientApp\Movie\IMovieListItem.ts" />
-    <TypeScriptCompile Include="ClientApp\Movie\ActionCreators.ts" />
-    <TypeScriptCompile Include="ClientApp\Movie\MovieList.tsx" />
-    <TypeScriptCompile Include="ClientApp\Movie\MovieListItem.tsx" />
-    <TypeScriptCompile Include="ClientApp\Movie\NowPlayingMoviesContainer.tsx" />
-    <TypeScriptCompile Include="ClientApp\Movie\Reducers.ts" />
+    <TypeScriptCompile Include="ClientApp\common\IMovieDetail.ts" />
+    <TypeScriptCompile Include="ClientApp\movie\Actions.ts" />
+    <TypeScriptCompile Include="ClientApp\movie\ActionTypes.ts" />
+    <TypeScriptCompile Include="ClientApp\common\IMovieListItem.ts" />
+    <TypeScriptCompile Include="ClientApp\movie\ActionCreators.ts" />
+    <TypeScriptCompile Include="ClientApp\components\movie\MovieList.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\movie\MovieListItem.tsx" />
+    <TypeScriptCompile Include="ClientApp\containers\NowPlayingMoviesContainer.tsx" />
+    <TypeScriptCompile Include="ClientApp\movie\Index.ts" />
+    <TypeScriptCompile Include="ClientApp\movie\Reducers.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

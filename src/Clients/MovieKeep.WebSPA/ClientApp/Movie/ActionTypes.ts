@@ -1,8 +1,6 @@
-﻿//const REQUEST_NOW_PLAYING_MOVIES = "app/Movie/RequestNowPlayingMovies";
-//const RECEIVE_NOW_PLAYING_MOVIES = "app/Movie/ReceiveNowPlayingMovies";
-
-
-export enum Types {
+﻿export enum Types {
     REQUEST_NOW_PLAYING_MOVIES,
-    RECEIVE_NOW_PLAYING_MOVIES
+    RECEIVE_NOW_PLAYING_MOVIES,
+    REQUEST_MOVIE_DETAIL,
+    RECEIVE_MOVIE_DETAIL,
 }

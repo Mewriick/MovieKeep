@@ -4,13 +4,14 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Typography from 'material-ui/Typography';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../store';
-import * as ActionCreators from './ActionCreators';
-import MovieList from './MovieList';
+import { ActionCreators } from '../movie/Index';
+import { NowPlayingMoviesState } from '../movie/Index';
+import MovieList from '../components/movie/MovieList';
  
 
 type PlayingMoviesProps =
-    ActionCreators.NowPlayingMoviesState
-    & typeof ActionCreators.actionCreators
+    NowPlayingMoviesState
+    & typeof ActionCreators
     & RouteComponentProps<{ page: string }>;
 
 
@@ -37,5 +38,5 @@ class NowPlayingMoviesContainer extends React.Component<PlayingMoviesProps, {}> 
 
 export default withRouter(connect(
     (state: ApplicationState) => state.nowPlayingMovies,
-    ActionCreators.actionCreators
+    ActionCreators
 )(NowPlayingMoviesContainer));
