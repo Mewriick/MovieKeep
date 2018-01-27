@@ -21,7 +21,7 @@ module.exports = (env) => {
                 { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' }
             ]
         },
-        plugins: [new CheckerPlugin()]
+        plugins: [new CheckerPlugin()],  
     });
 
     // Configuration for client-side bundle suitable for running in browsers
@@ -50,6 +50,7 @@ module.exports = (env) => {
             // Plugins that apply in production builds only
             new webpack.optimize.UglifyJsPlugin()
         ])
+
     });
 
     // Configuration for server-side (prerendering) bundle suitable for running in Node

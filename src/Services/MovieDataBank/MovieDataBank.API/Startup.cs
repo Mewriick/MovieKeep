@@ -30,10 +30,17 @@ namespace MovieDataBank.API
             services.AddOptions();
             services.AddLogging();
             services.AddCors();
+            services.AddMemoryCache();
 
             services.Configure<TMDBInfo>(Configuration);
             services.AddSingleton(typeof(TMDbClient), new TMDbClient(Configuration["TMDBInfo:ApiKey"]));
-            services.AddScoped<IMovieReader, MovieDbOrgReader>();
+            services.AddScoped<MovieDbOrgReader>();
+            services.AddScoped<IMovieReader, MovieStopwatchDecorator>(s => new MovieStopwatchDecorator(
+                s.GetRequiredService<MovieDbOrgReader>(),
+                s.GetRequiredService<ILogger<MovieStopwatchDecorator>>()
+                ));
+
+            services.AddScoped<IMovieActorsReader, MovieCrewTMIDbReader>();
 
             AddAutoMapper(services);
         }

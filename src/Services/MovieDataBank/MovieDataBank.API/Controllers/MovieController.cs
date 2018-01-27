@@ -30,9 +30,11 @@ namespace MovieDataBank.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<Movie> Get(int id)
         {
-            return "value";
+            var movie = await movieReader.GetMovie(id, "en-US");
+
+            return movie;
         }
     }
 }

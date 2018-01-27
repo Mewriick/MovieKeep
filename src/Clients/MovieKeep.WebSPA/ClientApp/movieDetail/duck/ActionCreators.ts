@@ -6,7 +6,6 @@ import { IMovieDetail } from "../../common/IMovieDetail";
 import * as Actions from "./Actions";
 import { Types } from "./ActionTypes";
 
-
 export interface MovieDetailState {
     movie: IMovieDetail;
     isLoading: boolean;

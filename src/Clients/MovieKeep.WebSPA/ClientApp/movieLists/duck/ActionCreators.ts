@@ -5,6 +5,7 @@ import { IMovieListItem } from "../../common/IMovieListItem";
 import { IMovieDetail } from "../../common/IMovieDetail";
 import * as Actions from "./Actions";
 import { Types } from "./ActionTypes";
+import { MovieDataBankApiUrl } from '../../common/ServiceUrls';
 
 export interface NowPlayingMoviesState {
     isLoading: boolean;
@@ -14,11 +15,11 @@ export interface NowPlayingMoviesState {
 
 type KnownAction = Actions.ReceiveNowPlayingMoviesAction | Actions.RequestNowPlayingMoviesAction;
 
-export const actionCreators = {
-    requestNowPlayingMovies: (page: number): AppThunkAction<KnownAction> => (dispatch, getState) => {
+export const actionCreators = {    
+    requestNowPlayingMovies: (page: number): AppThunkAction<KnownAction> => (dispatch, getState) => {        
         // Only load data if it's something we don't already have (and are not already loading)
         if (page !== getState().nowPlayingMovies.page) {
-            let fetchTask = fetch(`http://localhost:55207/api/movie`)
+            let fetchTask = fetch(`${MovieDataBankApiUrl}api/movie`)
                 .then(response => response.json() as Promise<IMovieListItem[]>)
                 .then(data => {
                     dispatch({ type: Types.RECEIVE_NOW_PLAYING_MOVIES, page: page, movies: data });
