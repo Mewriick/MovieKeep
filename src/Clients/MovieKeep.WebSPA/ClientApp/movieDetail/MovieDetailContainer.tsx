@@ -5,6 +5,7 @@ import Typography from 'material-ui/Typography';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../store';
 import { MovieDetailState, ActionCreators } from './duck';
+import MovieDetail from './MovieDetail';
 
 
 type MovieDetailProps =
@@ -25,9 +26,10 @@ class MovieDetailContainer extends React.Component<MovieDetailProps, {}> {
     }
 
     public render() {
+        console.log(this.props.movie);
         return (
             <div>
-                Test               
+                <MovieDetail movie={this.props.movie} />              
             </div>
         )
     }

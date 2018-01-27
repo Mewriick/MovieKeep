@@ -35,6 +35,7 @@ namespace MovieDataBank.API.AutoMapper
                 .ForPath(m => m.SocialInfo.Popularity, cfg => cfg.MapFrom(s => s.Popularity))
                 .ForMember(m => m.Runtime, cfg => cfg.MapFrom(tm => TimeSpan.FromMinutes(tm.Runtime ?? 0)))
                 .ForMember(m => m.Gendres, cfg => cfg.MapFrom(tm => tm.Genres.Select(g => g.Name)))
+                .ForMember(m => m.PosterPath, cfg => cfg.MapFrom(s => $"{MovieConstants.TMDBPosterUrl}{s.PosterPath}"))
                 .ForMember(m => m.Actors, cfg => cfg.Ignore())
                 ;
 
