@@ -1,7 +1,7 @@
 import * as WeatherForecasts from './WeatherForecasts';
 import * as Counter from './Counter';
-import movieReducer, { NowPlayingMoviesState, MovieDetailState } from '../movie/Index';
-//import * as MovieReducer from '../Movie/Reducers';
+import movieListsReducer, { NowPlayingMoviesState } from '../movieLists/duck';
+import movieDetailReducer, { MovieDetailState } from '../movieDetail/duck';
 
 // The top-level state object
 export interface ApplicationState {
@@ -17,7 +17,7 @@ export interface ApplicationState {
 export const reducers = {
     counter: Counter.reducer,
     weatherForecasts: WeatherForecasts.reducer,
-    nowPlayingMovies: movieReducer
+    nowPlayingMovies: movieListsReducer
 };
 
 // This type can be used as a hint on action creators so that its 'dispatch' and 'getState' params are

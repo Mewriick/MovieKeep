@@ -4,9 +4,8 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Typography from 'material-ui/Typography';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../store';
-import { ActionCreators } from '../movie/Index';
-import { NowPlayingMoviesState } from '../movie/Index';
-import MovieList from '../components/movie/MovieList';
+import { NowPlayingMoviesState, ActionCreators } from '../movieLists/duck';
+import MovieList from './MovieList';
  
 
 type PlayingMoviesProps =

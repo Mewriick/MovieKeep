@@ -1,7 +1,7 @@
 ﻿import * as React from 'react';
 import { compose } from 'recompose';
 import { StyleRules, Theme, withStyles, WithStyles } from "material-ui/styles";
-import { IMovieListItem } from '../../common/IMovieListItem';
+import { IMovieListItem } from '../common/IMovieListItem';
 import Card, { CardMedia, CardContent, CardHeader } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
 import Typography from 'material-ui/Typography';

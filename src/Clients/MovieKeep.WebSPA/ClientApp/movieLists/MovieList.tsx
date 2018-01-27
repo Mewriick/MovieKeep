@@ -1,5 +1,5 @@
 ﻿import * as React from 'react';
-import { IMovieListItem } from '../../common/IMovieListItem';
+import { IMovieListItem } from '../common/IMovieListItem';
 import MovieListItem from './MovieListItem';
 import GridList, { GridListTile, GridListTileBar } from 'material-ui/GridList';
 import { StyleRules, Theme, withStyles, WithStyles } from "material-ui/styles";
