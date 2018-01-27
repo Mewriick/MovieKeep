@@ -28,6 +28,7 @@
     <None Remove="ClientApp\movieDetail\duck\ActionTypes.ts" />
     <None Remove="ClientApp\movieDetail\duck\Index.ts" />
     <None Remove="ClientApp\movieDetail\duck\Reducers.ts" />
+    <None Remove="ClientApp\movieDetail\MovieDetailContainer.tsx" />
     <None Remove="ClientApp\movieLists\ActionCreators.ts" />
     <None Remove="ClientApp\movieLists\Actions.ts" />
     <None Remove="ClientApp\movieLists\ActionTypes.ts" />
@@ -44,6 +45,7 @@
     <TypeScriptCompile Include="ClientApp\movieDetail\duck\ActionTypes.ts" />
     <TypeScriptCompile Include="ClientApp\movieDetail\duck\Index.ts" />
     <TypeScriptCompile Include="ClientApp\movieDetail\duck\Reducers.ts" />
+    <TypeScriptCompile Include="ClientApp\movieDetail\MovieDetailContainer.tsx" />
     <TypeScriptCompile Include="ClientApp\movieLists\duck\Actions.ts" />
     <TypeScriptCompile Include="ClientApp\movieLists\duck\ActionTypes.ts" />
     <TypeScriptCompile Include="ClientApp\common\IMovieListItem.ts" />

@@ -17,7 +17,7 @@ type KnownAction = Actions.ReceivetMovieDetailAction | Actions.RequestMovieDetai
 export const actionCreators = {
     requestMovieDetail: (id: number): AppThunkAction<KnownAction> => (dispatch, getState) => {
         // Only load data if it's something we don't already have (and are not already loading)
-        if (getState().movieDetail.movie.tmdbId === null && id !== getState().movieDetail.movie.tmdbId) {
+        if (getState().movieDetail.movie === undefined || id !== getState().movieDetail.movie.tmdbId) {
             let fetchTask = fetch(`http://localhost:55207/api/movie/${id}`)
                 .then(response => response.json() as Promise<IMovieDetail>)
                 .then(data => {

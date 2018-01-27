@@ -12,6 +12,8 @@ import IconButton from 'material-ui/IconButton';
 import Avatar from 'material-ui/Avatar';
 import Chip from 'material-ui/Chip';
 import DateTime from "typescript-dotnet-commonjs/System/Time/DateTime";
+import { Link } from 'react-router-dom';
+
 
 interface IMovieListItemProps {
     movie: IMovieListItem;
@@ -81,7 +83,7 @@ const styles = (theme: Theme): StyleRules => ({
         fontSize: "1.15rem",
     },
     releaseDate: {
-        marginBottom: theme.spacing.unit 
+        marginBottom: theme.spacing.unit
     },
 });
 
@@ -93,7 +95,7 @@ class MovieListItem extends React.Component<MovieListItemProps, {}> {
         const { classes } = this.props;
 
         let releaseDateParsed = new DateTime(movie.releaseDate);
-        let releaseDateString = releaseDateParsed.calendar.day + "/" + releaseDateParsed.calendar.month + "/" + releaseDateParsed.calendar.year; 
+        let releaseDateString = releaseDateParsed.calendar.day + "/" + releaseDateParsed.calendar.month + "/" + releaseDateParsed.calendar.year;
 
         return (
             <div>
@@ -123,9 +125,11 @@ class MovieListItem extends React.Component<MovieListItemProps, {}> {
                                 {movie.overview.length > 250 ? movie.overview.substring(0, 250) + '...' : movie.overview}
                             </Typography>
                             <Divider />
-                            <IconButton classes={{ root: this.props.classes.iconButtonRoot }} className={classes.info}>
-                                More information <ArrowRightIcon />
-                            </IconButton>
+                            <Link className={classes.info} to={`/movieDetail/${movie.tmdbId}`}>
+                                <IconButton classes={{ root: this.props.classes.iconButtonRoot }} className={classes.info}>
+                                    More information <ArrowRightIcon />
+                                </IconButton>
+                            </Link>
                         </div>
                     </CardContent>
                 </Card>

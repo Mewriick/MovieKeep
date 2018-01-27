@@ -17,7 +17,8 @@ export interface ApplicationState {
 export const reducers = {
     counter: Counter.reducer,
     weatherForecasts: WeatherForecasts.reducer,
-    nowPlayingMovies: movieListsReducer
+    nowPlayingMovies: movieListsReducer,
+    movieDetail: movieDetailReducer,
 };
 
 // This type can be used as a hint on action creators so that its 'dispatch' and 'getState' params are
