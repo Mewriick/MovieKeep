@@ -55,6 +55,7 @@
     "webpack-merge": "4.1.0",
     "classnames": "2.2.5",
     "typescript-dotnet-commonjs": "4.9.11",
-    "recompose": "0.26.0"
+    "recompose": "0.26.0",
+    "flag-icon-css": "2.9.0"
   }
 }

@@ -1,5 +1,6 @@
 import './css/site.css';
 import 'bootstrap';
+import 'flag-icon-css/css/flag-icon.css';
 import 'material-ui';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';

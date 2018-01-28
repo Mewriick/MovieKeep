@@ -11,6 +11,8 @@ namespace MovieDataBank.Domain.AggregatesModel
 
         public TimeSpan? Runtime { get; set; }
 
+        public int RuntimeMins { get; set; } // Temp
+
         public string Overview { get; set; }
 
         public string PosterPath { get; set; }
@@ -25,11 +27,14 @@ namespace MovieDataBank.Domain.AggregatesModel
 
         public ICollection<MovieActor> Actors { get; set; }
 
+        public ICollection<ProductionCountry> ProductionCountries { get; set; }
+
         public Movie()
         {
             SocialInfo = new MovieSocialInfo();
             Gendres = new List<string>();
             Actors = new HashSet<MovieActor>();
+            ProductionCountries = new List<ProductionCountry>();
         }
     }
 }

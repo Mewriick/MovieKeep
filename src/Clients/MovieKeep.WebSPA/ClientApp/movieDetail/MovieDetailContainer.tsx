@@ -26,7 +26,6 @@ class MovieDetailContainer extends React.Component<MovieDetailProps, {}> {
     }
 
     public render() {
-        console.log(this.props.movie);
         return (
             <div>
                 <MovieDetail movie={this.props.movie} />              
