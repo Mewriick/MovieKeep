@@ -4,6 +4,7 @@ using MovieDataBank.Domain;
 using MovieDataBank.Domain.AggregatesModel;
 using System;
 using System.Linq;
+using TMDbLib.Objects.General;
 using TMDbLib.Objects.Movies;
 using TMDbLib.Objects.Search;
 
@@ -25,6 +26,7 @@ namespace MovieDataBank.API.AutoMapper
                 .ForMember(m => m.Revenue, cfg => cfg.Ignore())
                 .ForMember(m => m.Actors, cfg => cfg.Ignore())
                 .ForMember(m => m.ProductionCountries, cfg => cfg.Ignore())
+                .ForMember(m => m.Crew, cfg => cfg.Ignore())
                 ;
 
             CreateMap<Domain.AggregatesModel.Movie, MovieListItemDTO>()
@@ -40,9 +42,15 @@ namespace MovieDataBank.API.AutoMapper
                 .ForMember(m => m.Gendres, cfg => cfg.MapFrom(tm => tm.Genres.Select(g => g.Name)))
                 .ForMember(m => m.PosterPath, cfg => cfg.MapFrom(s => $"{MovieConstants.TMDBPosterUrl}{s.PosterPath}"))
                 .ForMember(m => m.Actors, cfg => cfg.Ignore())
+                .ForMember(m => m.Crew, cfg => cfg.Ignore())
                 ;
 
             CreateMap<Cast, MovieActor>()
+                .ForMember(m => m.TMDBId, cfg => cfg.MapFrom(s => s.Id))
+                .ForMember(m => m.ProfileImageUrl, cfg => cfg.MapFrom(s => $"{MovieConstants.TMDBPosterUrl}{s.ProfilePath}"))
+                ;
+
+            CreateMap<Crew, MovieWorker>()
                 .ForMember(m => m.TMDBId, cfg => cfg.MapFrom(s => s.Id))
                 .ForMember(m => m.ProfileImageUrl, cfg => cfg.MapFrom(s => $"{MovieConstants.TMDBPosterUrl}{s.ProfilePath}"))
                 ;

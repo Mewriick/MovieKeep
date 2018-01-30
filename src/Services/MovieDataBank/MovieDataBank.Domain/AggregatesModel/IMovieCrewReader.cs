@@ -9,5 +9,9 @@ namespace MovieDataBank.Domain.AggregatesModel
         Task<IEnumerable<MovieWorker>> GetMovieDirectors(int movieId, CancellationToken cancellationToken = default(CancellationToken));
 
         Task<IEnumerable<MovieWorker>> GetMovieWriters(int movieId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IEnumerable<MovieWorker>> GetMovieMusicComposers(int movieId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IEnumerable<MovieWorker>> GetMovieCameramen(int movieId, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

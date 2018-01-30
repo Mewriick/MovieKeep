@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MovieKeep.Core;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MovieDataBank.Domain.AggregatesModel
 {
@@ -29,12 +31,63 @@ namespace MovieDataBank.Domain.AggregatesModel
 
         public ICollection<ProductionCountry> ProductionCountries { get; set; }
 
+        public MovieCrew Crew { get; set; }
+
         public Movie()
         {
             SocialInfo = new MovieSocialInfo();
             Gendres = new List<string>();
-            Actors = new HashSet<MovieActor>();
+            Actors = new List<MovieActor>();
             ProductionCountries = new List<ProductionCountry>();
+            Crew = new MovieCrew();
+        }
+
+        public Movie WithDirectors(IEnumerable<MovieWorker> directors)
+        {
+            if (Crew == null || directors.NullOrEmpty())
+            {
+                return this;
+            }
+
+            Crew.Directors = directors.ToList();
+
+            return this;
+        }
+
+        public Movie WithWriters(IEnumerable<MovieWorker> writers)
+        {
+            if (Crew == null || writers.NullOrEmpty())
+            {
+                return this;
+            }
+
+            Crew.Writers = writers.ToList();
+
+            return this;
+        }
+
+        public Movie WithMusicComposers(IEnumerable<MovieWorker> musicComposers)
+        {
+            if (Crew == null || musicComposers.NullOrEmpty())
+            {
+                return this;
+            }
+
+            Crew.MusicComposers = musicComposers.ToList();
+
+            return this;
+        }
+
+        public Movie WithCameramen(IEnumerable<MovieWorker> cameramen)
+        {
+            if (Crew == null || cameramen.NullOrEmpty())
+            {
+                return this;
+            }
+
+            Crew.Cameramen = cameramen.ToList();
+
+            return this;
         }
     }
 }

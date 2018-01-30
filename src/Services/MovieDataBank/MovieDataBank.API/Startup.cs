@@ -41,6 +41,7 @@ namespace MovieDataBank.API
                 ));
 
             services.AddScoped<IMovieActorsReader, MovieCrewTMIDbReader>();
+            services.AddScoped<IMovieCrewReader, MovieCrewTMIDbReader>();
 
             AddAutoMapper(services);
         }
