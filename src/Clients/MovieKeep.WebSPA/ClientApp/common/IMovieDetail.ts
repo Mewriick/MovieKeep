@@ -14,6 +14,7 @@ export interface IMovieDetail {
     gendres: string[];
     actors: IMovieActor[];
     productionCountries: ICountry[];
+    crew: IMovieCrew;
 }
 
 export interface IMovieActor {
@@ -24,12 +25,27 @@ export interface IMovieActor {
     gender: number;
 }
 
+export interface IMovieWorker {
+    tmdbId: number;
+    name: string;
+    gender: number;
+    profileImageUrl: string;
+}
+
 export interface ICountry {
     code: string;
     name: string;
 }
 
+export interface IMovieCrew {
+    directors: IMovieWorker[];
+    writers: IMovieWorker[];
+    musicComposers: IMovieWorker[];
+    cameramen: IMovieWorker[];
+}
+
 export class NullMovieDetail implements IMovieDetail {
+    crew: IMovieCrew;
     runtimeMins: number;
     productionCountries: ICountry[];
     actors: IMovieActor[];

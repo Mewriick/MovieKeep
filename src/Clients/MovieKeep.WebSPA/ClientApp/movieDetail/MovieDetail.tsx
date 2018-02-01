@@ -13,14 +13,17 @@ import Chip from 'material-ui/Chip';
 import DateTime from "typescript-dotnet-commonjs/System/Time/DateTime";
 import AppBar from 'material-ui/AppBar';
 import Tabs, { Tab } from 'material-ui/Tabs';
+import MovieDetailCrew from './MovieDetailCrew';
+import MovieGendres from './MovieGendresDetail';
+import MovieCountries from './MovieCountries';
+import MovieActors from './MovieActors';
 
 
 interface IMovieDetailProps {
     movie: IMovieDetail;
 }
 
-type MovieListItemProps = IMovieDetailProps & WithStyles<"poster" | "card" | "content" | "cover" | "root" | "title" | "chips" | "chipsWrapper"
-    | "actorCard" | "actorCardMedia" | "actorCardContentRoot">;
+type MovieDetailProps = IMovieDetailProps & WithStyles<"card" | "content" | "cover" | "root" | "title" | "chips" >;
 
 const styles = (theme: Theme): StyleRules => ({
     root: {
@@ -32,28 +35,8 @@ const styles = (theme: Theme): StyleRules => ({
         marginRight: theme.spacing.unit * 3,
         backgroundColor: theme.palette.background.paper,
     },
-    poster: {
-
-    },
     card: {
         display: 'flex',
-    },
-    actorCard: {
-        display: 'flex',
-        flexDirection: 'column',
-        width: 95,
-        marginLeft: theme.spacing.unit,
-        marginTop: theme.spacing.unit,
-    },
-    actorCardMedia: {
-        width: '100%',
-        height: 85,
-    },
-    actorCardContentRoot: {
-        padding: 0,
-        paddingTop: theme.spacing.unit,
-        paddingLeft: theme.spacing.unit,
-        paddingRight: theme.spacing.unit,
     },
     content: {
         flex: '1 0 auto',
@@ -65,11 +48,6 @@ const styles = (theme: Theme): StyleRules => ({
     title: {
         margin: theme.spacing.unit,
     },
-    chipsWrapper: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'flex-start',
-    },
     chips: {
         marginTop: theme.spacing.unit,
         marginLeft: theme.spacing.unit,
@@ -78,7 +56,7 @@ const styles = (theme: Theme): StyleRules => ({
 });
 
 
-class MovieDetail extends React.Component<MovieListItemProps, {}> {
+class MovieDetail extends React.Component<MovieDetailProps, {}> {
     state = {
         value: 0,
     };
@@ -106,11 +84,12 @@ class MovieDetail extends React.Component<MovieListItemProps, {}> {
                         <div className={classes.title}>
                             <Typography type="display1">{movie.title} ({releaseDateParsed.year}) </Typography>
                         </div>
-                        {this.renderCountries(movie.productionCountries)}
-                        {this.renderGendres(movie.gendres)}
+                        <MovieCountries countries={movie.productionCountries} />
+                        <MovieGendres movieGendres={movie.gendres} />
                         {this.renderMovieLength(movie.runtimeMins)}
                         <Divider />
-                        {this.renderMainActors(movie.actors)}
+                        <MovieDetailCrew crew={movie.crew} />
+                        <MovieActors actors={movie.actors} />
                     </CardContent>
                 </Card>
                 <AppBar position="static">
@@ -129,43 +108,6 @@ class MovieDetail extends React.Component<MovieListItemProps, {}> {
         );
     }
 
-    private renderGendres(movieGendres: string[]) {
-        if (movieGendres === undefined) {
-            return;
-        }
-
-        return (
-            <div className={this.props.classes.chipsWrapper}>
-                {movieGendres.map((g, i) => {
-                    return <Chip key={g}
-                        avatar={<Avatar>{g.substring(0, 1)}</Avatar>}
-                        label={g}
-                        className={this.props.classes.chips} />;
-                })
-                }
-            </div>
-        );
-    }
-
-    private renderCountries(countries: ICountry[]) {
-        if (countries === undefined) {
-            return;
-        }
-
-        return (
-            <div className={this.props.classes.chipsWrapper}>
-                {countries.map((c, i) => {
-                    let classNameFlag = "flag-icon flag-icon-" + c.code.toLowerCase();
-                    return <Chip key={c.code}
-                        avatar={<Avatar className={classNameFlag} />}
-                        label={c.name}
-                        className={this.props.classes.chips} />;
-                })
-                }
-            </div>
-        );
-    }
-
     private renderMovieLength(runtime: number) {
         let runtimeSpan = TimeSpan.fromMinutes(runtime);
 
@@ -173,30 +115,6 @@ class MovieDetail extends React.Component<MovieListItemProps, {}> {
             avatar={<Avatar> <TimerIcon /></Avatar>}
             label={runtimeSpan.minutes + " min"}
             className={this.props.classes.chips} />;
-    }
-
-    private renderMainActors(mainActors: IMovieActor[]) {
-        if (mainActors === undefined) {
-            return;
-        }
-
-        return (
-            <div className={this.props.classes.chipsWrapper}>
-                { mainActors.map((actor, i) => {
-                    return <Card key={actor.tmdbId} className={this.props.classes.actorCard}>
-                        <CardMedia className={this.props.classes.actorCardMedia}
-                            image={actor.profileImageUrl}
-                            title={actor.character}
-                        />
-                        <CardContent classes={{ root: this.props.classes.actorCardContentRoot }}>
-                            <Typography type="body2" component="h2">{actor.name}</Typography>
-                            <Divider />
-                            <Typography type="subheading" component="h2">{actor.character}</Typography>
-                        </CardContent>
-                    </Card>
-                }) }
-            </div>
-        );
     }
 }
 

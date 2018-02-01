@@ -28,8 +28,12 @@
     <None Remove="ClientApp\movieDetail\duck\ActionTypes.ts" />
     <None Remove="ClientApp\movieDetail\duck\Index.ts" />
     <None Remove="ClientApp\movieDetail\duck\Reducers.ts" />
+    <None Remove="ClientApp\movieDetail\MovieActors.tsx" />
+    <None Remove="ClientApp\movieDetail\MovieCountries.tsx" />
     <None Remove="ClientApp\movieDetail\MovieDetail.tsx" />
     <None Remove="ClientApp\movieDetail\MovieDetailContainer.tsx" />
+    <None Remove="ClientApp\movieDetail\movieDetailCrew.tsx" />
+    <None Remove="ClientApp\movieDetail\MovieGendresDetail.tsx" />
     <None Remove="ClientApp\movieLists\ActionCreators.ts" />
     <None Remove="ClientApp\movieLists\Actions.ts" />
     <None Remove="ClientApp\movieLists\ActionTypes.ts" />
@@ -46,8 +50,12 @@
     <TypeScriptCompile Include="ClientApp\movieDetail\duck\ActionTypes.ts" />
     <TypeScriptCompile Include="ClientApp\movieDetail\duck\Index.ts" />
     <TypeScriptCompile Include="ClientApp\movieDetail\duck\Reducers.ts" />
+    <TypeScriptCompile Include="ClientApp\movieDetail\MovieActors.tsx" />
+    <TypeScriptCompile Include="ClientApp\movieDetail\MovieCountries.tsx" />
     <TypeScriptCompile Include="ClientApp\movieDetail\MovieDetail.tsx" />
     <TypeScriptCompile Include="ClientApp\movieDetail\MovieDetailContainer.tsx" />
+    <TypeScriptCompile Include="ClientApp\movieDetail\MovieDetailCrew.tsx" />
+    <TypeScriptCompile Include="ClientApp\movieDetail\MovieGendresDetail.tsx" />
     <TypeScriptCompile Include="ClientApp\movieLists\duck\Actions.ts" />
     <TypeScriptCompile Include="ClientApp\movieLists\duck\ActionTypes.ts" />
     <TypeScriptCompile Include="ClientApp\common\IMovieListItem.ts" />
